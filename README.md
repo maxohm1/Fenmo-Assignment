@@ -192,3 +192,4 @@ Returns a list of expenses.
 | **Live Application** | [https://fenmo-assignment-opal.vercel.app](https://fenmo-assignment-opal.vercel.app) |
 | **GitHub Repository** | [https://github.com/maxohm1/Fenmo-Assignment](https://github.com/maxohm1/Fenmo-Assignment) |
 | **Commit History** | [View Commits](https://github.com/maxohm1/Fenmo-Assignment/commits/master) |
+| **Commit History Screenshot** | ![Commit History](commits.png) |
