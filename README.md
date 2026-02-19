@@ -2,7 +2,7 @@
 
 A minimal full-stack personal expense tracker to record, review, and understand where your money is going.
 
-**Live Demo**: *(deployment link TBD)*
+**Live Demo**: [https://fenmo-assignment-opal.vercel.app](https://fenmo-assignment-opal.vercel.app)
 
 ---
 
@@ -46,7 +46,11 @@ Runs the backend integration tests with Jest and Supertest.
 
 ```
 fenmo/
-├── server/              # Express.js backend
+├── api/                 # Vercel serverless functions
+│   ├── expenses.js            # POST & GET /expenses
+│   ├── health.js              # Health check
+│   └── _store.js              # In-memory data store
+├── server/              # Express.js backend (local dev)
 │   ├── src/
 │   │   ├── index.js           # App entry point
 │   │   ├── db.js              # SQLite setup & schema
@@ -66,6 +70,7 @@ fenmo/
 │           ├── ExpenseList.jsx
 │           ├── FilterControls.jsx
 │           └── CategorySummary.jsx
+├── vercel.json          # Vercel deployment config
 └── package.json         # Root scripts (concurrently)
 ```
 
@@ -109,7 +114,7 @@ The submit button is disabled while a request is in flight, and the idempotency 
 | **Auth** | No authentication | Add JWT-based user accounts |
 | **Styling** | Clean but minimal CSS | A design system or TailwindCSS for richer UI |
 | **Editing/Deleting** | Not implemented | PUT/DELETE endpoints and inline editing |
-| **Deployment** | Local only | Dockerise and deploy to Railway or Render |
+| **Deployment** | Vercel (serverless + in-memory store) | Add a hosted database (Vercel Postgres, Turso) for persistent storage |
 | **Validation** | Basic checks | Schema validation with Zod or Joi |
 | **Testing** | Backend integration tests | Add frontend component tests with React Testing Library |
 | **Pagination** | None | Paginate GET /expenses for large datasets |
@@ -177,3 +182,13 @@ Returns a list of expenses.
   }
 ]
 ```
+
+---
+
+## Submission
+
+| Item | Link |
+|------|------|
+| **Live Application** | [https://fenmo-assignment-opal.vercel.app](https://fenmo-assignment-opal.vercel.app) |
+| **GitHub Repository** | [https://github.com/maxohm1/Fenmo-Assignment](https://github.com/maxohm1/Fenmo-Assignment) |
+| **Commit History** | [View Commits](https://github.com/maxohm1/Fenmo-Assignment/commits/master) |
