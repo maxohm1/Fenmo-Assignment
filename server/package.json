@@ -1,0 +1,22 @@
+{
+    "name": "fenmo-server",
+    "version": "1.0.0",
+    "description": "Backend API for the Fenmo Expense Tracker",
+    "main": "src/index.js",
+    "scripts": {
+        "dev": "nodemon src/index.js",
+        "start": "node src/index.js",
+        "test": "jest --verbose --forceExit"
+    },
+    "dependencies": {
+        "better-sqlite3": "^11.8.1",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "uuid": "^11.1.0"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "nodemon": "^3.1.9",
+        "supertest": "^7.1.0"
+    }
+}
