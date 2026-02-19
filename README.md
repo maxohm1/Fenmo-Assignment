@@ -21,6 +21,23 @@ A simple, beautiful way to track your personal expenses. Built with a focus on c
 - **Database**: SQLite (Local) / In-Memory (Vercel Demo)
 - **Styling**: Native CSS Variables
 
+## Architecture
+
+The project is a monorepo structure:
+
+```
+fenmo/
+├── api/                 # Vercel serverless functions (Production)
+├── server/              # Express.js backend (Local Development)
+├── client/              # React + Vite frontend
+├── vercel.json          # Deployment configuration
+└── package.json         # Root scripts
+```
+
+- **Frontend**: Handles UI, state, and API calls.
+- **Backend (Local)**: Uses SQLite for a persistent file-based database.
+- **Backend (Prod)**: Uses Vercel Serverless Functions with an in-memory store for the demo.
+
 ---
 
 ## 🚀 Getting Started
