@@ -1,0 +1,336 @@
+/* ==============================
+   CSS Custom Properties
+   ============================== */
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --success: #059669;
+  --error: #dc2626;
+  --border: #e5e7eb;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 14px rgba(0, 0, 0, 0.1);
+  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ==============================
+   Reset & Base
+   ============================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ==============================
+   App Layout
+   ============================== */
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==============================
+   Cards (shared)
+   ============================== */
+.expense-form,
+.category-summary,
+.expense-list,
+.filter-controls {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+/* ==============================
+   Expense Form
+   ============================== */
+.expense-form h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.form-row {
+  margin-bottom: 0.85rem;
+}
+
+.form-row label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: var(--font);
+  transition: border-color 0.15s;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.expense-form button {
+  width: 100%;
+  padding: 0.65rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 0.5rem;
+}
+
+.expense-form button:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.expense-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: var(--error);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-success {
+  color: var(--success);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ==============================
+   Filter Controls
+   ============================== */
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 140px;
+}
+
+.filter-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: var(--font);
+}
+
+.sort-btn {
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: all 0.15s;
+}
+
+.sort-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.sort-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* ==============================
+   Expense Table
+   ============================== */
+.expense-list {
+  overflow-x: auto;
+}
+
+.expense-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.expense-list th,
+.expense-list td {
+  text-align: left;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.expense-list thead th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.expense-list tbody tr:hover {
+  background: #f9fafb;
+}
+
+.amount-col {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.total-row {
+  font-weight: 700;
+  background: #f0f0ff;
+}
+
+.total-row td {
+  border-bottom: none;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  color: var(--primary);
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  background: #eef2ff;
+  color: var(--primary);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ==============================
+   Category Summary
+   ============================== */
+.category-summary {
+  margin-top: 1rem;
+}
+
+.category-summary h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.category-summary ul {
+  list-style: none;
+}
+
+.category-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.category-summary li:last-child {
+  border-bottom: none;
+}
+
+.cat-total {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+/* ==============================
+   States
+   ============================== */
+.loading-text,
+.empty-text {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+}
+
+.api-error {
+  background: #fef2f2;
+  color: var(--error);
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
