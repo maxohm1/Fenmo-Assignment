@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3001";
+const API_BASE = "";
 
 /**
  * Fetch all expenses, with optional category filter and sort.
