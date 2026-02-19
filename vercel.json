@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "buildCommand": "cd client && npm install && npm run build",
+    "outputDirectory": "client/dist",
+    "installCommand": "npm install --prefix api uuid && npm install --prefix client",
+    "rewrites": [
+        {
+            "source": "/expenses",
+            "destination": "/api/expenses"
+        },
+        {
+            "source": "/health",
+            "destination": "/api/health"
+        }
+    ]
+}
