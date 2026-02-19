@@ -28,7 +28,7 @@ export default function ExpenseList({ expenses, loading }) {
                         <tr key={exp.id}>
                             <td>{formatDate(exp.date)}</td>
                             <td>
-                                <span className="category-badge">{exp.category}</span>
+                                <span className="category-badge" data-category={exp.category}>{exp.category}</span>
                             </td>
                             <td>{exp.description}</td>
                             <td className="amount-col">₹{exp.amount.toFixed(2)}</td>

@@ -17,7 +17,7 @@ export default function CategorySummary({ expenses }) {
             <ul>
                 {sorted.map(([cat, total]) => (
                     <li key={cat}>
-                        <span className="category-badge">{cat}</span>
+                        <span className="category-badge" data-category={cat}>{cat}</span>
                         <span className="cat-total">₹{total.toFixed(2)}</span>
                     </li>
                 ))}
